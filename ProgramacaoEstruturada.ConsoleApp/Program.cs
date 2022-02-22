@@ -1,17 +1,5 @@
 ﻿using System;
-//Conteúdo: Revisão de Arrays, Criação de Métodos e Pesquisa sobre Modificadores de
-//Parâmetros
-//Desenvolver um algoritmo que dados 10 valores inteiros permita:
-//• Encontrar o Maior Valor da sequência
-//• Encontrar o Menor Valor da sequência
-//• Encontrar o Valor Médio da sequência
-//• Encontrar os 3 maiores valores da sequência
-//• Encontrar os valores negativos da sequência
-//• Mostrar na Tela os valores da sequência
-//• Remover um item da sequência
-//Critérios de Aceite:
-//• Para obter o Maior valor utilize o modificador de parâmetro: ref
-//• Para obter o Menor valor utilize o modificador de parâmetro: out
+
 namespace ProgramacaoEstruturada.ConsoleApp
 {
     internal class Program
@@ -63,9 +51,6 @@ namespace ProgramacaoEstruturada.ConsoleApp
             Console.ReadKey();
         }
         #region Metodos
-        /// <summary>
-        /// Metodo para imprimir mensagens na tela, com o segundo paremetro informando TRUE para quebrar linha ou FALSE para não quebrar
-        /// </summary>
         private static void Imprimir(string imprimir, bool quebrarLinha)
         {
             if(quebrarLinha == true)
@@ -73,7 +58,7 @@ namespace ProgramacaoEstruturada.ConsoleApp
             else
                 Console.Write(imprimir);
         }
-        
+                
         private static void ImprimirArray(int[] arrayNumeros, bool quebrarLinha)
         {
             for (int i = 0; i < arrayNumeros.Length; i++)
@@ -85,41 +70,27 @@ namespace ProgramacaoEstruturada.ConsoleApp
 
         public static void OrdenarArray(ref int[] arrayParaordenar)
         {
-            int[] numeros = new int [arrayParaordenar.Length];
-            numeros = arrayParaordenar;
-
-            for (int i = 0; i < numeros.Length; i++)
+            for (int i = 0; i < arrayParaordenar.Length; i++)
             {
-                for (int z = 0; z < (numeros.Length - 1); z++)
+                for (int z = 0; z < (arrayParaordenar.Length - 1); z++)
                 {
                     int troca;
-                    if(numeros[z] > numeros[z +1])
+                    if(arrayParaordenar[z] > arrayParaordenar[z +1])
                     {
-                        troca = numeros[z];
-                        numeros[z] = numeros[z+1];
-                        numeros[z + 1] = troca;
+                        troca = arrayParaordenar[z];
+                        arrayParaordenar[z] = arrayParaordenar[z+1];
+                        arrayParaordenar[z + 1] = troca;
                     }
                 }
             }
         }
         public static void MaiorNumeroArray(ref int[] arrayParaObterMaior, ref int maiorNumero)
         {
-            int[] numeros = new int [arrayParaObterMaior.Length];
-            int maiorNumeroMetodo = maiorNumero;
-
-            numeros = arrayParaObterMaior;
-
-            maiorNumeroMetodo = numeros[numeros.Length - 1];
-
+            maiorNumero = arrayParaObterMaior[arrayParaObterMaior.Length - 1];
         }
         public static void MenorNumeroArray(ref int[] arrayParaObterMaior, out int menorNumero)
         {
-            int[] numeros = new int[arrayParaObterMaior.Length];
-
-            numeros = arrayParaObterMaior;
-
-            menorNumero = numeros[0];
-
+            menorNumero = arrayParaObterMaior[0];
         }
         public static double MediaArray(ref int[] arrayParaEncontrarMedia)
         {
